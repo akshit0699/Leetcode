@@ -1,0 +1,60 @@
+WHERE GREEDY PEOPLE FAIL - DYNAMIC PROGRAMMING WILL FLOURISH AND RULE!
+
+Key Notes:
+1. Globally Optimal solutions - Instead of locally optimal solution, consider all choices.
+2. Subproblem down - Think of the smallest solvable problem!
+3. Overlapping sub-problems - Chache where you can! O(2^n) -> O(n)
+4. Reach very Deep decision junctions - To reach the optimial solution via sub-problems
+5. Reduce the number of decisions to be made - use the cached knowledge.
+6. Top-Down DP: Global Subproblem Break down to--> Base cases [normally recursive] -- "Recurrence in code" -- Recursively follow the recurrence untill the base case, then build back up caching all the way
+7. Bottom-Up DP: Know your Base cases to form--> Global subproblem [normally iterative] -- "Rides up the cache" - Force otptimality from the bottom and reach global otpimality
+8. Solve, Solve, Solve and given the knowledge back.
+9. Narrow minded greedy solutions might word in some-cases, but aren't dependable.
+10. The more information you have the easier your life is
+
+Can we extend a previous optimal answer to find the optimal answer for the sub-problem
+where we are sitting right now
+
+We have multiple deciison junctions -- recursion!
+We have Overlapping Subproblems -- caching + dp!
+
+
+
+1. IDENTIFYING THE RECURRENCE
+How do we solve from the global sub-problem and coming downwards...
+When is an answer ceratin? What can I keep as my blue-print for decision making?
+This helps us in fixating what are my sub-problems?
+How do they relate together?
+What are my base-cases?
+
+POSSIBILITY -> RECURSION
+CONSTRAINTS -> VALIDITIY 
+
+POSSIBILITY or CONSTRAINTS ---> Think RECURSION/BACKTRACKING PROBLEM -> prune our decision tree somehow 
+STATE - Expression of a decision/possiblities space.
+
+Recurssion will express all the possiblities!
+
+At each point we can be at max doing 2 splits.
+ABCD
+Can I decode A out of this? Yes - recurse on it.
+Can I decode AB out of this? Yes - recurse on it.
+
+A, BCD and AB, CD --- and now we take the same set of decisions as we did for ABCD
+
+T(n) = T(n-1) + T(n-2) + O(1)
+Tree of depth=n and we are branching twice at each and every node.
+Branch Factor = 2
+Depth = n
+O(2^n) -- would be the asymptotic bound (Think of it like choosing just 1 character at every level of the tree
+and you will have to be at depth=n to say it as the worst case)
+
+Where are we repeating the work?
+When there is a scope for caching we can eliminate some sub-trees alltogether. Hence not requireing us
+to re-compute the results for that part.
+1212 => Can reduce to linear amount of sub-problems to be solved instead of O(2^n)
+Prune thee tree if there are duplicate problems and those cold have been cached.
+
+
+
+String functions [incluscve, exclusive)
